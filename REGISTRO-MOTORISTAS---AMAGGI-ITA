@@ -1,0 +1,68 @@
+document.getElementById('statusForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const truckId = document.getElementById('truckId').value;
+    const status = document.getElementById('status').value;
+    const obs = document.getElementById('obs').value;
+
+    const li = document.createElement('li');
+    li.textContent = `Caminhão: ${truckId} | Status: ${status} | Obs: ${obs}`;
+    document.getElementById('history').appendChild(li);
+
+    document.getElementById('statusForm').reset();
+});
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status do Tanque</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Registrar Status do Tanque</h1>
+    <form id="statusForm">
+        <input type="text" id="truckId" placeholder="ID do Caminhão" required>
+        <select id="status">
+            <option value="cheio">Cheio</option>
+            <option value="vazio">Vazio</option>
+            <option value="parcial">Parcial</option>
+        </select>
+        <textarea id="obs" placeholder="Observações"></textarea>
+        <button type="submit">Registrar</button>
+    </form>
+
+    <h2>Histórico</h2>
+    <ul id="history"></ul>
+
+    <script src="app.js"></script>
+</body>
+</html>
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+}
+h1 {
+    color: #333;
+}
+form {
+    margin-bottom: 20px;
+}
+input, select, textarea {
+    display: block;
+    margin: 10px 0;
+    padding: 8px;
+    width: 300px;
+}
+button {
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #0056b3;
+}
